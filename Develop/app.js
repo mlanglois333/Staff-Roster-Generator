@@ -33,9 +33,9 @@ function newIntern() {
             name: "school",
             message: "Enter the school attended:"
         },
-    
-    ]).then(answers => { 
-        const tempIntern= new Intern(answers.name, answers.id, answers.email, answers.school);
+
+    ]).then(answers => {
+        const tempIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
         employeeList.push(tempIntern);
         newEmployee();
     });
@@ -63,9 +63,9 @@ function newEngineer() {
             name: "github",
             message: "Enter the github profile name:"
         },
-    
-    ]).then(answers => { 
-        const tempEngineer= new Engineer(answers.name, answers.id, answers.email, answers.github);
+
+    ]).then(answers => {
+        const tempEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         employeeList.push(tempEngineer);
         newEmployee();
     });
@@ -93,9 +93,9 @@ function newManager() {
             name: "officeNumber",
             message: "Enter the office number:"
         },
-    
-    ]).then(answers => { 
-        const tempManager= new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+
+    ]).then(answers => {
+        const tempManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         employeeList.push(tempManager);
         newEmployee;
     });
@@ -109,14 +109,14 @@ function newEmployee() {
             message: "Would you like to create a new employee?",
             choices: ["Yes", "No"],
         }
-    
+
     ]).then(answers => {
         if (answers.confirm === "Yes") {
             newRole();
         }
-        else {console.log("Selected NO");}
-
-    })
+        else { const html = render(employeeList);
+            fs.writeFile("/output/team.html", html);
+                 
 }
 
 function newRole() {
@@ -125,17 +125,17 @@ function newRole() {
             type: "list",
             name: "role",
             message: "Please select the employee's role:",
-            choices:["Manager", "Engineer", "Intern"],
+            choices: ["Manager", "Engineer", "Intern"],
         }
-    
+
     ]).then(answers => {
-        if (answers.role==="Manager"){
+        if (answers.role === "Manager") {
             newManager();
         }
-        else if (answers.role==="Intern"){
+        else if (answers.role === "Intern") {
             newIntern();
         }
-        else if (answers.role==="Engineer"){
+        else if (answers.role === "Engineer") {
             newEngineer();
         }
     })
