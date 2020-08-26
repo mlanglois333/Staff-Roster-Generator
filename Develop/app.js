@@ -35,8 +35,9 @@ function newIntern() {
         },
     
     ]).then(answers => { 
-        const tempIntern= new Intern(name, id, email, school);
+        const tempIntern= new Intern(answers.name, answers.id, answers.email, answers.school);
         employeeList.push(tempIntern);
+        newEmployee();
     });
 }
 
@@ -64,8 +65,9 @@ function newEngineer() {
         },
     
     ]).then(answers => { 
-        const tempEngineer= new Engineer(name, id, email, github);
+        const tempEngineer= new Engineer(answers.name, answers.id, answers.email, answers.github);
         employeeList.push(tempEngineer);
+        newEmployee();
     });
 }
 
@@ -93,8 +95,9 @@ function newManager() {
         },
     
     ]).then(answers => { 
-        const tempManager= new Manager(name, id, email, officeNumber);
+        const tempManager= new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         employeeList.push(tempManager);
+        newEmployee;
     });
 }
 
@@ -105,9 +108,15 @@ function newEmployee() {
             name: "confirm",
             message: "Would you like to create a new employee?",
             choices: ["Yes", "No"],
-        },
+        }
     
-    ]);
+    ]).then(answers => {
+        if (answers.confirm === "Yes") {
+            newRole();
+        }
+        else {console.log("Selected NO");}
+
+    })
 }
 
 function newRole() {
@@ -117,10 +126,22 @@ function newRole() {
             name: "role",
             message: "Please select the employee's role:",
             choices:["Manager", "Engineer", "Intern"],
-        },
+        }
     
-    ]);
+    ]).then(answers => {
+        if (answers.role==="Manager"){
+            newManager();
+        }
+        else if (answers.role==="Intern"){
+            newIntern();
+        }
+        else if (answers.role==="Engineer"){
+            newEngineer();
+        }
+    })
 }
+
+newEmployee();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
