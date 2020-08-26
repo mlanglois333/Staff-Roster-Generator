@@ -115,7 +115,7 @@ function newEmployee() {
             newRole();
         }
         else { const html = render(employeeList);
-            fs.writeFile("/output/team.html", html);
+            fs.writeFile(outputPath, html);
                  
 }
 
