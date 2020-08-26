@@ -13,7 +13,7 @@ class Employee {
     getEmail(){
         return this.email;
     }
-    getID(){
+    getId(){
         return this.id;
     }
     getRole(){
