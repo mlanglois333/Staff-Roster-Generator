@@ -114,9 +114,12 @@ function newEmployee() {
         if (answers.confirm === "Yes") {
             newRole();
         }
-        else { const html = render(employeeList);
+        else {
+            const html = render(employeeList);
             fs.writeFile(outputPath, html);
-                 
+
+        }
+    })
 }
 
 function newRole() {
