@@ -34,7 +34,10 @@ function newIntern() {
             message: "Enter the school attended:"
         },
     
-    ]);
+    ]).then(answers => { 
+        const tempIntern= new Intern(name, id, email, school);
+        employeeList.push(tempIntern);
+    });
 }
 
 function newEngineer() {
@@ -60,7 +63,10 @@ function newEngineer() {
             message: "Enter the github profile name:"
         },
     
-    ]);
+    ]).then(answers => { 
+        const tempEngineer= new Engineer(name, id, email, github);
+        employeeList.push(tempEngineer);
+    });
 }
 
 function newManager() {
@@ -86,7 +92,10 @@ function newManager() {
             message: "Enter the office number:"
         },
     
-    ]);
+    ]).then(answers => { 
+        const tempManager= new Manager(name, id, email, officeNumber);
+        employeeList.push(tempManager);
+    });
 }
 
 function newEmployee() {
