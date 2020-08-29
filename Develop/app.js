@@ -97,7 +97,7 @@ function newManager() {
     ]).then(answers => {
         const tempManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         employeeList.push(tempManager);
-        newEmployee;
+        newEmployee();
     });
 }
 
@@ -116,8 +116,11 @@ function newEmployee() {
         }
         else {
             const html = render(employeeList);
-            fs.writeFile(outputPath, html);
-
+            fs.writeFile(outputPath, html, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+            })
         }
     })
 }
