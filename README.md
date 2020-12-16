@@ -6,6 +6,4 @@ This is a Node application that takes user input and writes an html file that di
 To view a video of it in action, please click the following link:
 https://drive.google.com/file/d/1Wa1E82qh5QE5gQwHv3T-DD2qd8-xw5FQ/view?usp=sharing
 
-Make sure to npm install prior to using!
-
 Marc Langlois 2020
